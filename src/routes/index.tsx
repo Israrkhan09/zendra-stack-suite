@@ -11,6 +11,7 @@ import {
   MessageCircle,
   ShoppingCart,
   Sparkles,
+  TrendingUp,
   Workflow,
   Zap,
 } from "lucide-react";
@@ -54,6 +55,7 @@ function waLink(message: string) {
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "How We Work", href: "#process" },
   { label: "Why Us", href: "#why-us" },
   { label: "Contact", href: "#contact" },
