@@ -724,6 +724,7 @@ function Index() {
       <main>
         <Hero />
         <Services />
+        <Portfolio />
         <Process />
         <WhyUs />
         <Contact />
