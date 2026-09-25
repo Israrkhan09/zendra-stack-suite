@@ -112,6 +112,91 @@ const SERVICES = [
   },
 ];
 
+const PORTFOLIO_CATEGORIES = [
+  "All",
+  "Websites",
+  "E-commerce",
+  "AI & LMS",
+  "SaaS",
+  "ERP & CRM",
+  "Bots & Agents",
+];
+
+const PROJECTS = [
+  {
+    icon: Layout,
+    category: "Websites",
+    title: "Meraj Interiors",
+    tagline: "Corporate website for an interior design studio",
+    description:
+      "A fully responsive, SEO-ready showcase site with an interactive project gallery and quote request flow.",
+    outcomes: ["+65% quote inquiries", "1.2s page load", "95+ SEO score"],
+  },
+  {
+    icon: ShoppingCart,
+    category: "E-commerce",
+    title: "VeloCart Store",
+    tagline: "Multi-vendor e-commerce platform",
+    description:
+      "Complete store with product catalog, secure checkout, payment integration and live inventory tracking.",
+    outcomes: ["+48% online sales", "12k+ products listed", "3× faster checkout"],
+  },
+  {
+    icon: GraduationCap,
+    category: "AI & LMS",
+    title: "EduNexa LMS",
+    tagline: "AI-powered learning platform",
+    description:
+      "Courses, quizzes and progress tracking with an AI tutor that personalizes learning for every student.",
+    outcomes: ["5,000+ active students", "+40% course completion", "24/7 AI tutor"],
+  },
+  {
+    icon: Boxes,
+    category: "SaaS",
+    title: "BookFlow SaaS",
+    tagline: "Subscription booking platform",
+    description:
+      "Multi-tenant SaaS with subscriptions, billing, user roles and real-time analytics dashboard.",
+    outcomes: ["300+ paying subscribers", "99.9% uptime", "MRR doubled in 6 months"],
+  },
+  {
+    icon: Workflow,
+    category: "ERP & CRM",
+    title: "TexWeave ERP",
+    tagline: "Manufacturing ERP system",
+    description:
+      "Finance, HR, inventory and production unified in one custom ERP tailored to the client's workflow.",
+    outcomes: ["6 departments unified", "-30% manual work", "Real-time stock view"],
+  },
+  {
+    icon: Code2,
+    category: "ERP & CRM",
+    title: "LeadHive CRM",
+    tagline: "Sales CRM for a real estate agency",
+    description:
+      "Lead capture, automated follow-ups and visual pipelines that keep the sales team on target.",
+    outcomes: ["2× lead conversion", "15 automated pipelines", "-50% response time"],
+  },
+  {
+    icon: Bot,
+    category: "Bots & Agents",
+    title: "SupportPilot Bot",
+    tagline: "Server-based website chatbot",
+    description:
+      "AI chatbot trained on the client's knowledge base that resolves customer questions around the clock.",
+    outcomes: ["80% tickets auto-resolved", "24/7 availability", "<5s avg. reply"],
+  },
+  {
+    icon: MessageCircle,
+    category: "Bots & Agents",
+    title: "OrderMate Agent",
+    tagline: "WhatsApp ordering agent",
+    description:
+      "WhatsApp agent that takes orders, confirms payments and sends follow-ups automatically.",
+    outcomes: ["1,500+ orders/month", "<30s avg. response", "98% customer rating"],
+  },
+];
+
 const PROCESS_STEPS = [
   {
     step: "01",
