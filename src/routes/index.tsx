@@ -541,17 +541,18 @@ function Portfolio() {
                 ))}
               </div>
 
-              <a
-                href={waLink(
-                  `Hi ZendraStack! I saw the "${project.title}" case study in your portfolio and I'd like something similar for my business.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary-soft transition-all hover:bg-primary hover:text-primary-foreground"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Inquire About This Project
-              </a>
+                <a
+                  href={waLink(
+                    `Hi ZendraStack! I saw the "${project.title}" case study in your portfolio and I'd like something similar for my business.`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary-soft transition-all hover:bg-primary hover:text-primary-foreground"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Inquire About This Project
+                </a>
+              </div>
             </article>
           ))}
         </div>
