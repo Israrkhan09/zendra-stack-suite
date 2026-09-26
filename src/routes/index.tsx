@@ -501,16 +501,28 @@ function Portfolio() {
           {filtered.map((project) => (
             <article
               key={project.title}
-              className="card-hover group flex flex-col rounded-2xl border border-border bg-card p-6"
+              className="card-hover group flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <project.icon className="h-5 w-5" />
-                </div>
-                <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary-soft">
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  width={960}
+                  height={640}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute left-3 top-3 rounded-full border border-primary/40 bg-background/80 px-3 py-1 text-[11px] font-medium text-primary-soft backdrop-blur">
                   {project.category}
                 </span>
               </div>
+
+              <div className="flex flex-1 flex-col p-6">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <project.icon className="h-5 w-5" />
+                  </div>
+                </div>
 
               <h3 className="mt-5 font-display text-lg font-semibold">{project.title}</h3>
               <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
