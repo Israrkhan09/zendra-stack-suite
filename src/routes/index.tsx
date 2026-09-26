@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   Code2,
   GraduationCap,
+  Home,
   Layout,
   MessageCircle,
   ShoppingCart,
@@ -15,6 +16,15 @@ import {
   Workflow,
   Zap,
 } from "lucide-react";
+import merajInteriorsImg from "@/assets/projects/meraj-interiors.jpg";
+import velocartStoreImg from "@/assets/projects/velocart-store.jpg";
+import edunexaLmsImg from "@/assets/projects/edunexa-lms.jpg";
+import bookflowSaasImg from "@/assets/projects/bookflow-saas.jpg";
+import texweaveErpImg from "@/assets/projects/texweave-erp.jpg";
+import leadhiveCrmImg from "@/assets/projects/leadhive-crm.jpg";
+import supportpilotBotImg from "@/assets/projects/supportpilot-bot.jpg";
+import ordermateAgentImg from "@/assets/projects/ordermate-agent.jpg";
+import skylineRealtyImg from "@/assets/projects/skyline-realty.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -131,6 +141,7 @@ const PROJECTS = [
     description:
       "A fully responsive, SEO-ready showcase site with an interactive project gallery and quote request flow.",
     outcomes: ["+65% quote inquiries", "1.2s page load", "95+ SEO score"],
+    image: merajInteriorsImg,
   },
   {
     icon: ShoppingCart,
@@ -140,6 +151,7 @@ const PROJECTS = [
     description:
       "Complete store with product catalog, secure checkout, payment integration and live inventory tracking.",
     outcomes: ["+48% online sales", "12k+ products listed", "3× faster checkout"],
+    image: velocartStoreImg,
   },
   {
     icon: GraduationCap,
@@ -149,6 +161,7 @@ const PROJECTS = [
     description:
       "Courses, quizzes and progress tracking with an AI tutor that personalizes learning for every student.",
     outcomes: ["5,000+ active students", "+40% course completion", "24/7 AI tutor"],
+    image: edunexaLmsImg,
   },
   {
     icon: Boxes,
@@ -158,6 +171,7 @@ const PROJECTS = [
     description:
       "Multi-tenant SaaS with subscriptions, billing, user roles and real-time analytics dashboard.",
     outcomes: ["300+ paying subscribers", "99.9% uptime", "MRR doubled in 6 months"],
+    image: bookflowSaasImg,
   },
   {
     icon: Workflow,
@@ -167,6 +181,7 @@ const PROJECTS = [
     description:
       "Finance, HR, inventory and production unified in one custom ERP tailored to the client's workflow.",
     outcomes: ["6 departments unified", "-30% manual work", "Real-time stock view"],
+    image: texweaveErpImg,
   },
   {
     icon: Code2,
@@ -176,6 +191,7 @@ const PROJECTS = [
     description:
       "Lead capture, automated follow-ups and visual pipelines that keep the sales team on target.",
     outcomes: ["2× lead conversion", "15 automated pipelines", "-50% response time"],
+    image: leadhiveCrmImg,
   },
   {
     icon: Bot,
@@ -185,6 +201,7 @@ const PROJECTS = [
     description:
       "AI chatbot trained on the client's knowledge base that resolves customer questions around the clock.",
     outcomes: ["80% tickets auto-resolved", "24/7 availability", "<5s avg. reply"],
+    image: supportpilotBotImg,
   },
   {
     icon: MessageCircle,
@@ -194,6 +211,17 @@ const PROJECTS = [
     description:
       "WhatsApp agent that takes orders, confirms payments and sends follow-ups automatically.",
     outcomes: ["1,500+ orders/month", "<30s avg. response", "98% customer rating"],
+    image: ordermateAgentImg,
+  },
+  {
+    icon: Home,
+    category: "Websites",
+    title: "Skyline Realty",
+    tagline: "Property listing website for a real estate agency",
+    description:
+      "Modern listing site with map search, image-rich property pages and instant WhatsApp booking inquiries.",
+    outcomes: ["3× more site visits", "+90 qualified leads/month", "60% faster inquiries"],
+    image: skylineRealtyImg,
   },
 ];
 
@@ -473,16 +501,28 @@ function Portfolio() {
           {filtered.map((project) => (
             <article
               key={project.title}
-              className="card-hover group flex flex-col rounded-2xl border border-border bg-card p-6"
+              className="card-hover group flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <project.icon className="h-5 w-5" />
-                </div>
-                <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary-soft">
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  width={960}
+                  height={640}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute left-3 top-3 rounded-full border border-primary/40 bg-background/80 px-3 py-1 text-[11px] font-medium text-primary-soft backdrop-blur">
                   {project.category}
                 </span>
               </div>
+
+              <div className="flex flex-1 flex-col p-6">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <project.icon className="h-5 w-5" />
+                  </div>
+                </div>
 
               <h3 className="mt-5 font-display text-lg font-semibold">{project.title}</h3>
               <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
@@ -501,17 +541,18 @@ function Portfolio() {
                 ))}
               </div>
 
-              <a
-                href={waLink(
-                  `Hi ZendraStack! I saw the "${project.title}" case study in your portfolio and I'd like something similar for my business.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary-soft transition-all hover:bg-primary hover:text-primary-foreground"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Inquire About This Project
-              </a>
+                <a
+                  href={waLink(
+                    `Hi ZendraStack! I saw the "${project.title}" case study in your portfolio and I'd like something similar for my business.`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary-soft transition-all hover:bg-primary hover:text-primary-foreground"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Inquire About This Project
+                </a>
+              </div>
             </article>
           ))}
         </div>
