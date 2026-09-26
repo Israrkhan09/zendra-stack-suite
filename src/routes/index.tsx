@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   Code2,
   GraduationCap,
+  Home,
   Layout,
   MessageCircle,
   ShoppingCart,
@@ -15,6 +16,15 @@ import {
   Workflow,
   Zap,
 } from "lucide-react";
+import merajInteriorsImg from "@/assets/projects/meraj-interiors.jpg";
+import velocartStoreImg from "@/assets/projects/velocart-store.jpg";
+import edunexaLmsImg from "@/assets/projects/edunexa-lms.jpg";
+import bookflowSaasImg from "@/assets/projects/bookflow-saas.jpg";
+import texweaveErpImg from "@/assets/projects/texweave-erp.jpg";
+import leadhiveCrmImg from "@/assets/projects/leadhive-crm.jpg";
+import supportpilotBotImg from "@/assets/projects/supportpilot-bot.jpg";
+import ordermateAgentImg from "@/assets/projects/ordermate-agent.jpg";
+import skylineRealtyImg from "@/assets/projects/skyline-realty.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
