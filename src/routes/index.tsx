@@ -141,6 +141,7 @@ const PROJECTS = [
     description:
       "A fully responsive, SEO-ready showcase site with an interactive project gallery and quote request flow.",
     outcomes: ["+65% quote inquiries", "1.2s page load", "95+ SEO score"],
+    image: merajInteriorsImg,
   },
   {
     icon: ShoppingCart,
@@ -150,6 +151,7 @@ const PROJECTS = [
     description:
       "Complete store with product catalog, secure checkout, payment integration and live inventory tracking.",
     outcomes: ["+48% online sales", "12k+ products listed", "3× faster checkout"],
+    image: velocartStoreImg,
   },
   {
     icon: GraduationCap,
@@ -159,6 +161,7 @@ const PROJECTS = [
     description:
       "Courses, quizzes and progress tracking with an AI tutor that personalizes learning for every student.",
     outcomes: ["5,000+ active students", "+40% course completion", "24/7 AI tutor"],
+    image: edunexaLmsImg,
   },
   {
     icon: Boxes,
@@ -168,6 +171,7 @@ const PROJECTS = [
     description:
       "Multi-tenant SaaS with subscriptions, billing, user roles and real-time analytics dashboard.",
     outcomes: ["300+ paying subscribers", "99.9% uptime", "MRR doubled in 6 months"],
+    image: bookflowSaasImg,
   },
   {
     icon: Workflow,
@@ -177,6 +181,7 @@ const PROJECTS = [
     description:
       "Finance, HR, inventory and production unified in one custom ERP tailored to the client's workflow.",
     outcomes: ["6 departments unified", "-30% manual work", "Real-time stock view"],
+    image: texweaveErpImg,
   },
   {
     icon: Code2,
@@ -186,6 +191,7 @@ const PROJECTS = [
     description:
       "Lead capture, automated follow-ups and visual pipelines that keep the sales team on target.",
     outcomes: ["2× lead conversion", "15 automated pipelines", "-50% response time"],
+    image: leadhiveCrmImg,
   },
   {
     icon: Bot,
@@ -195,6 +201,7 @@ const PROJECTS = [
     description:
       "AI chatbot trained on the client's knowledge base that resolves customer questions around the clock.",
     outcomes: ["80% tickets auto-resolved", "24/7 availability", "<5s avg. reply"],
+    image: supportpilotBotImg,
   },
   {
     icon: MessageCircle,
@@ -204,6 +211,17 @@ const PROJECTS = [
     description:
       "WhatsApp agent that takes orders, confirms payments and sends follow-ups automatically.",
     outcomes: ["1,500+ orders/month", "<30s avg. response", "98% customer rating"],
+    image: ordermateAgentImg,
+  },
+  {
+    icon: Home,
+    category: "Websites",
+    title: "Skyline Realty",
+    tagline: "Property listing website for a real estate agency",
+    description:
+      "Modern listing site with map search, image-rich property pages and instant WhatsApp booking inquiries.",
+    outcomes: ["3× more site visits", "+90 qualified leads/month", "60% faster inquiries"],
+    image: skylineRealtyImg,
   },
 ];
 
