@@ -43,6 +43,30 @@
 
 :root {
   --radius: 0.75rem;
+  --background: oklch(0.99 0.003 250);
+  --foreground: oklch(0.16 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.02 260);
+  --primary: oklch(0.55 0.2 255);
+  --primary-foreground: oklch(0.99 0.003 250);
+  --primary-soft: oklch(0.48 0.18 255);
+  --secondary: oklch(0.955 0.012 255);
+  --secondary-foreground: oklch(0.18 0.025 260);
+  --muted: oklch(0.955 0.012 255);
+  --muted-foreground: oklch(0.46 0.025 260);
+  --accent: oklch(0.24 0.05 255);
+  --accent-foreground: oklch(0.99 0.003 250);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 250);
+  --border: oklch(0.82 0.02 255 / 70%);
+  --input: oklch(0.78 0.025 255 / 70%);
+  --ring: oklch(0.55 0.2 255);
+  --glow: oklch(0.55 0.2 255 / 20%);
+}
+
+.dark {
   --background: oklch(0.13 0.018 265);
   --foreground: oklch(0.965 0.005 250);
   --card: oklch(0.165 0.022 265);
@@ -80,6 +104,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   h1,
@@ -113,12 +138,12 @@
   background:
     radial-gradient(
       45rem 30rem at 50% -10%,
-      oklch(0.55 0.16 255 / 22%),
+      color-mix(in oklch, var(--primary) 15%, transparent),
       transparent 70%
     ),
     radial-gradient(
       30rem 22rem at 85% 30%,
-      oklch(0.55 0.14 240 / 12%),
+      color-mix(in oklch, var(--primary) 8%, transparent),
       transparent 70%
     );
 }
@@ -126,8 +151,8 @@
 /* Faint blueprint grid for hero background */
 @utility hero-grid {
   background-image:
-    linear-gradient(oklch(1 0 0 / 4%) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 4%) 1px, transparent 1px);
+    linear-gradient(color-mix(in oklch, var(--foreground) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--foreground) 5%, transparent) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(
     ellipse 80% 60% at 50% 20%,
@@ -145,7 +170,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    border-color: oklch(0.62 0.19 255 / 45%);
+    border-color: color-mix(in oklch, var(--primary) 45%, transparent);
     box-shadow: 0 12px 40px -12px var(--glow);
   }
 }

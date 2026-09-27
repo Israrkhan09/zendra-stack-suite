@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Theme architecture: semantic colors are light-first in `:root`, with the original dark palette under `.dark`; this preserves every component's existing color-role classes while enabling one global toggle.
