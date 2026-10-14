@@ -27,6 +27,8 @@ import leadhiveCrmImg from "@/assets/projects/leadhive-crm.jpg";
 import supportpilotBotImg from "@/assets/projects/supportpilot-bot.jpg";
 import ordermateAgentImg from "@/assets/projects/ordermate-agent.jpg";
 import skylineRealtyImg from "@/assets/projects/skyline-realty.jpg";
+import logoBlack from "@/assets/zendra-logo-black.png.asset.json";
+import logoWhite from "@/assets/zendra-logo-white.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -291,13 +293,17 @@ function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#home" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-display text-sm font-bold text-primary-foreground">
-            Z
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight">
-            Zendra<span className="text-primary">Stack</span>
-          </span>
+        <a href="#home" className="flex items-center" onClick={() => setOpen(false)}>
+          <img
+            src={logoBlack.url}
+            alt="ZendraStack Technologies"
+            className="h-9 w-auto dark:hidden"
+          />
+          <img
+            src={logoWhite.url}
+            alt="ZendraStack Technologies"
+            className="hidden h-9 w-auto dark:block"
+          />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -326,7 +332,7 @@ function Navbar() {
             href={waLink("Hi ZendraStack! I want to discuss a project.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40"
+            className="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-4 py-2 text-sm font-semibold text-whatsapp-foreground shadow-lg shadow-whatsapp/25 transition-all hover:bg-whatsapp/90 hover:shadow-whatsapp/40"
           >
             <MessageCircle className="h-4 w-4" />
             Chat on WhatsApp
@@ -381,7 +387,7 @@ function Navbar() {
               href={waLink("Hi ZendraStack! I want to discuss a project.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-3 text-sm font-semibold text-whatsapp-foreground"
             >
               <MessageCircle className="h-4 w-4" />
               Chat on WhatsApp
@@ -421,7 +427,7 @@ function Hero() {
               href={waLink("Hi ZendraStack! I want a quote for my project.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-primary/50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp px-7 py-3.5 text-sm font-semibold text-whatsapp-foreground shadow-xl shadow-whatsapp/30 transition-all hover:-translate-y-0.5 hover:bg-whatsapp/90 hover:shadow-whatsapp/50 sm:w-auto"
             >
               <MessageCircle className="h-4 w-4" />
               Get a Free Quote
@@ -487,7 +493,7 @@ function Services() {
             href={waLink("Hi ZendraStack! I want to discuss one of your services.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary-soft transition-all hover:bg-primary/20"
+            className="inline-flex items-center gap-2 rounded-xl border border-whatsapp/40 bg-whatsapp/10 px-6 py-3 text-sm font-semibold text-whatsapp transition-all hover:bg-whatsapp/20"
           >
             <MessageCircle className="h-4 w-4" />
             Need something custom? Ask us on WhatsApp
@@ -585,7 +591,7 @@ function Portfolio() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary-soft transition-all hover:bg-primary hover:text-primary-foreground"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-whatsapp/40 bg-whatsapp/10 px-4 py-2.5 text-sm font-semibold text-whatsapp transition-all hover:bg-whatsapp hover:text-whatsapp-foreground"
                 >
                   <MessageCircle className="h-4 w-4" />
                   Inquire About This Project
@@ -709,7 +715,7 @@ function Contact() {
               href={waLink("Hi ZendraStack! I'd like to get started.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-primary/90 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp px-8 py-4 text-sm font-semibold text-whatsapp-foreground shadow-xl shadow-whatsapp/30 transition-all hover:-translate-y-0.5 hover:bg-whatsapp/90 sm:w-auto"
             >
               <MessageCircle className="h-5 w-5" />
               Chat on WhatsApp
@@ -738,12 +744,16 @@ function Footer() {
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
           <div className="flex flex-col items-center gap-2 md:items-start">
             <a href="#home" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-display text-sm font-bold text-primary-foreground">
-                Z
-              </span>
-              <span className="font-display text-lg font-bold tracking-tight">
-                Zendra<span className="text-primary">Stack</span>
-              </span>
+          <img
+            src={logoBlack.url}
+            alt="ZendraStack Technologies"
+            className="h-10 w-auto dark:hidden"
+          />
+          <img
+            src={logoWhite.url}
+            alt="ZendraStack Technologies"
+            className="hidden h-10 w-auto dark:block"
+          />
             </a>
             <p className="text-sm text-muted-foreground">
               Websites · E-commerce · AI · SaaS · ERP · CRM · Chatbots
@@ -766,7 +776,7 @@ function Footer() {
             href={waLink("Hi ZendraStack!")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary-soft transition-colors hover:text-primary"
+            className="inline-flex items-center gap-2 text-sm font-medium text-whatsapp transition-colors hover:text-whatsapp/80"
           >
             <MessageCircle className="h-4 w-4" />
             {WHATSAPP_NUMBER_DISPLAY}
@@ -788,10 +798,10 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with ZendraStack on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl shadow-primary/40 transition-transform hover:scale-110"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-2xl shadow-whatsapp/40 transition-transform hover:scale-110"
     >
       <MessageCircle className="h-7 w-7" />
-      <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-primary/30" />
+      <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-whatsapp/30" />
     </a>
   );
 }

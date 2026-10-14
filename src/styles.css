@@ -37,6 +37,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-glow: var(--glow);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
   --font-display: "Sora", "Inter", sans-serif;
   --font-sans: "Inter", sans-serif;
 }
@@ -64,6 +66,8 @@
   --input: oklch(0.78 0.025 255 / 70%);
   --ring: oklch(0.55 0.2 255);
   --glow: oklch(0.55 0.2 255 / 20%);
+  --whatsapp: #25d366;
+  --whatsapp-foreground: #ffffff;
 }
 
 .dark {
@@ -88,6 +92,8 @@
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.62 0.19 255);
   --glow: oklch(0.62 0.19 255 / 35%);
+  --whatsapp: #25d366;
+  --whatsapp-foreground: #ffffff;
 }
 
 @layer base {
