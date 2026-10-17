@@ -460,13 +460,34 @@ function Services({ onInquiry }: { onInquiry: OpenInquiry }) {
           {SERVICES.map((service) => (
             <div
               key={service.title}
-              className="card-hover group rounded-2xl border border-border bg-card p-6"
+              className={
+                service.featured
+                  ? "card-hover group relative overflow-hidden rounded-2xl border border-primary/60 bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/25"
+                  : "card-hover group rounded-2xl border border-border bg-card p-6"
+              }
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              {service.featured ? (
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-primary-foreground/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary-foreground">
+                  {service.tag}
+                </span>
+              ) : null}
+              <div
+                className={
+                  service.featured
+                    ? "flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/15 text-primary-foreground transition-colors group-hover:bg-primary-foreground group-hover:text-primary"
+                    : "flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+                }
+              >
                 <service.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 font-display text-lg font-semibold">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p
+                className={
+                  service.featured
+                    ? "mt-2 text-sm leading-relaxed text-primary-foreground/80"
+                    : "mt-2 text-sm leading-relaxed text-muted-foreground"
+                }
+              >
                 {service.description}
               </p>
             </div>
