@@ -70,7 +70,39 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const SERVICES = [
+type Service = {
+  icon: typeof Layout;
+  title: string;
+  description: string;
+  featured?: boolean;
+  tag?: string;
+};
+
+const SERVICES: Service[] = [
+  {
+    icon: Bot,
+    title: "Web Chatbots & AI Agents",
+    description:
+      "Server-based chatbots and autonomous agents that answer customers, qualify leads and work 24/7 on your website.",
+    featured: true,
+    tag: "AI",
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp Agents",
+    description:
+      "Smart WhatsApp agents that handle orders, support and follow-ups automatically — right inside the app your customers use daily.",
+    featured: true,
+    tag: "AI",
+  },
+  {
+    icon: GraduationCap,
+    title: "AI-Integrated LMS",
+    description:
+      "Learning management systems with courses, quizzes, progress tracking and AI tutors that personalize learning for every student.",
+    featured: true,
+    tag: "AI",
+  },
   {
     icon: Layout,
     title: "Website Development",
@@ -82,12 +114,6 @@ const SERVICES = [
     title: "E-commerce Websites",
     description:
       "Complete online stores with product catalogs, secure checkout, payments, order management and inventory tracking.",
-  },
-  {
-    icon: GraduationCap,
-    title: "AI-Integrated LMS",
-    description:
-      "Learning management systems with courses, quizzes, progress tracking and AI tutors that personalize learning for every student.",
   },
   {
     icon: Boxes,
@@ -106,18 +132,6 @@ const SERVICES = [
     title: "CRM Systems",
     description:
       "Track leads, manage pipelines and automate follow-ups with a CRM your sales team will actually enjoy using.",
-  },
-  {
-    icon: Bot,
-    title: "Web Chatbots & AI Agents",
-    description:
-      "Server-based chatbots and autonomous agents that answer customers, qualify leads and work 24/7 on your website.",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp Agents",
-    description:
-      "Smart WhatsApp agents that handle orders, support and follow-ups automatically — right inside the app your customers use daily.",
   },
 ];
 
