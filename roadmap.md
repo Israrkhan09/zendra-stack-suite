@@ -8,3 +8,4 @@
 - [x] Answer user question: fonts are Sora (headings/display) + Inter (body), loaded in src/routes/__root.tsx
 - [x] Make light theme default without changing layout, typography, spacing, or sizing
 - [x] Add persistent light/dark toggle to the top navbar and verify both views — desktop/mobile, refresh persistence, and WhatsApp links verified
+- [x] Move AI & AI-automation service cards to the top of the 8 services and highlight them as primary — verified light/dark/mobile, build OK

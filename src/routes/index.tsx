@@ -70,7 +70,39 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const SERVICES = [
+type Service = {
+  icon: typeof Layout;
+  title: string;
+  description: string;
+  featured?: boolean;
+  tag?: string;
+};
+
+const SERVICES: Service[] = [
+  {
+    icon: Bot,
+    title: "Web Chatbots & AI Agents",
+    description:
+      "Server-based chatbots and autonomous agents that answer customers, qualify leads and work 24/7 on your website.",
+    featured: true,
+    tag: "AI",
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp Agents",
+    description:
+      "Smart WhatsApp agents that handle orders, support and follow-ups automatically — right inside the app your customers use daily.",
+    featured: true,
+    tag: "AI",
+  },
+  {
+    icon: GraduationCap,
+    title: "AI-Integrated LMS",
+    description:
+      "Learning management systems with courses, quizzes, progress tracking and AI tutors that personalize learning for every student.",
+    featured: true,
+    tag: "AI",
+  },
   {
     icon: Layout,
     title: "Website Development",
@@ -82,12 +114,6 @@ const SERVICES = [
     title: "E-commerce Websites",
     description:
       "Complete online stores with product catalogs, secure checkout, payments, order management and inventory tracking.",
-  },
-  {
-    icon: GraduationCap,
-    title: "AI-Integrated LMS",
-    description:
-      "Learning management systems with courses, quizzes, progress tracking and AI tutors that personalize learning for every student.",
   },
   {
     icon: Boxes,
@@ -106,18 +132,6 @@ const SERVICES = [
     title: "CRM Systems",
     description:
       "Track leads, manage pipelines and automate follow-ups with a CRM your sales team will actually enjoy using.",
-  },
-  {
-    icon: Bot,
-    title: "Web Chatbots & AI Agents",
-    description:
-      "Server-based chatbots and autonomous agents that answer customers, qualify leads and work 24/7 on your website.",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp Agents",
-    description:
-      "Smart WhatsApp agents that handle orders, support and follow-ups automatically — right inside the app your customers use daily.",
   },
 ];
 
@@ -446,13 +460,34 @@ function Services({ onInquiry }: { onInquiry: OpenInquiry }) {
           {SERVICES.map((service) => (
             <div
               key={service.title}
-              className="card-hover group rounded-2xl border border-border bg-card p-6"
+              className={
+                service.featured
+                  ? "card-hover group relative overflow-hidden rounded-2xl border border-primary/60 bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/25"
+                  : "card-hover group rounded-2xl border border-border bg-card p-6"
+              }
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              {service.featured ? (
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-primary-foreground/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary-foreground">
+                  {service.tag}
+                </span>
+              ) : null}
+              <div
+                className={
+                  service.featured
+                    ? "flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/15 text-primary-foreground transition-colors group-hover:bg-primary-foreground group-hover:text-primary"
+                    : "flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+                }
+              >
                 <service.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 font-display text-lg font-semibold">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p
+                className={
+                  service.featured
+                    ? "mt-2 text-sm leading-relaxed text-primary-foreground/80"
+                    : "mt-2 text-sm leading-relaxed text-muted-foreground"
+                }
+              >
                 {service.description}
               </p>
             </div>
