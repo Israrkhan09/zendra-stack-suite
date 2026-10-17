@@ -27,6 +27,8 @@ import leadhiveCrmImg from "@/assets/projects/leadhive-crm.jpg";
 import supportpilotBotImg from "@/assets/projects/supportpilot-bot.jpg";
 import ordermateAgentImg from "@/assets/projects/ordermate-agent.jpg";
 import skylineRealtyImg from "@/assets/projects/skyline-realty.jpg";
+import { Button } from "@/components/ui/button";
+import { ConsultationForm, type Inquiry } from "@/components/consultation-form";
 import logoBlack from "@/assets/zendra-logo-black.png.asset.json";
 import logoWhite from "@/assets/zendra-logo-white.png.asset.json";
 
@@ -39,7 +41,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "ZendraStack builds websites, e-commerce stores, AI-integrated LMS, SaaS, ERP & CRM systems, chatbots and WhatsApp agents. Contact us on WhatsApp to get started.",
+          "ZendraStack builds websites, e-commerce stores, AI-integrated LMS, SaaS, ERP & CRM systems, chatbots and WhatsApp agents. Request a quote or consultation to get started.",
       },
       { property: "og:title", content: "ZendraStack — Web, AI & Software Development Agency" },
       {
@@ -59,13 +61,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const WHATSAPP_NUMBER_DISPLAY = "+92 319 4080600";
-const WHATSAPP_NUMBER_INTL = "923194080600";
-
-function waLink(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER_INTL}?text=${encodeURIComponent(message)}`;
-}
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -223,7 +218,7 @@ const PROJECTS = [
     title: "Skyline Realty",
     tagline: "Property listing website for a real estate agency",
     description:
-      "Modern listing site with map search, image-rich property pages and instant WhatsApp booking inquiries.",
+      "Modern listing site with map search, image-rich property pages and instant booking inquiries.",
     outcomes: ["3× more site visits", "+90 qualified leads/month", "60% faster inquiries"],
     image: skylineRealtyImg,
   },
@@ -234,7 +229,7 @@ const PROCESS_STEPS = [
     step: "01",
     title: "Tell Us Your Idea",
     description:
-      "Message us on WhatsApp and describe what you need. We reply quickly with questions, suggestions and a clear plan.",
+      "Share your idea and project goals. We discuss your needs, answer your questions and put together a clear plan.",
   },
   {
     step: "02",
@@ -267,7 +262,7 @@ const WHY_POINTS = [
 
 const STATS = [
   { value: "50+", label: "Projects Delivered" },
-  { value: "24/7", label: "WhatsApp Support" },
+  { value: "24/7", label: "AI & Automation" },
   { value: "100%", label: "Responsive Builds" },
   { value: "8+", label: "Service Lines" },
 ];
@@ -292,21 +287,21 @@ function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#home" className="flex items-center" onClick={() => setOpen(false)}>
+      <nav className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-6 lg:flex lg:justify-between lg:px-8">
+        <a href="#home" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
           <img
             src={logoBlack.url}
             alt="ZendraStack Technologies"
-            className="h-9 w-auto dark:hidden"
+            className="h-9 w-auto max-w-[170px] object-contain dark:hidden"
           />
           <img
             src={logoWhite.url}
             alt="ZendraStack Technologies"
-            className="hidden h-9 w-auto dark:block"
+            className="hidden h-9 w-auto max-w-[170px] object-contain dark:block"
           />
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -318,8 +313,8 @@ function Navbar() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <button
+        <div className="hidden items-center gap-2 lg:flex">
+          <Button
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
@@ -327,20 +322,11 @@ function Navbar() {
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-foreground transition-colors hover:border-primary/40 hover:bg-secondary"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
-          <a
-            href={waLink("Hi ZendraStack! I want to discuss a project.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-4 py-2 text-sm font-semibold text-whatsapp-foreground shadow-lg shadow-whatsapp/25 transition-all hover:bg-whatsapp/90 hover:shadow-whatsapp/40"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Chat on WhatsApp
-          </a>
+          </Button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <button
+        <div className="flex items-center gap-2 lg:hidden">
+          <Button
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
@@ -348,8 +334,8 @@ function Navbar() {
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-foreground transition-colors hover:border-primary/40 hover:bg-secondary"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-border"
             onClick={() => setOpen((v) => !v)}
@@ -366,12 +352,12 @@ function Navbar() {
                 className={`absolute left-0 h-0.5 w-5 bg-foreground transition-all ${open ? "top-2 -rotate-45" : "top-4"}`}
               />
             </span>
-          </button>
+          </Button>
         </div>
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background px-4 pb-6 pt-2 md:hidden">
+        <div className="border-t border-border bg-background px-4 pb-6 pt-2 lg:hidden">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <a
@@ -383,15 +369,6 @@ function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href={waLink("Hi ZendraStack! I want to discuss a project.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-4 py-3 text-sm font-semibold text-whatsapp-foreground"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Chat on WhatsApp
-            </a>
           </div>
         </div>
       )}
@@ -399,7 +376,9 @@ function Navbar() {
   );
 }
 
-function Hero() {
+type OpenInquiry = (source: Inquiry["source"], project?: string) => void;
+
+function Hero({ onInquiry }: { onInquiry: OpenInquiry }) {
   return (
     <section id="home" className="relative overflow-hidden pt-16">
       <div className="hero-glow absolute inset-0" aria-hidden="true" />
@@ -423,15 +402,7 @@ function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={waLink("Hi ZendraStack! I want a quote for my project.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp px-7 py-3.5 text-sm font-semibold text-whatsapp-foreground shadow-xl shadow-whatsapp/30 transition-all hover:-translate-y-0.5 hover:bg-whatsapp/90 hover:shadow-whatsapp/50 sm:w-auto"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Get a Free Quote
-            </a>
+            <Button onClick={() => onInquiry("quote")} className="h-12 w-full px-7 font-semibold sm:w-auto">Get a Free Quote <ArrowRight /></Button>
             <a
               href="#services"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-card px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-secondary sm:w-auto"
@@ -441,7 +412,7 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-display text-3xl font-bold text-primary sm:text-4xl">
@@ -457,7 +428,7 @@ function Hero() {
   );
 }
 
-function Services() {
+function Services({ onInquiry }: { onInquiry: OpenInquiry }) {
   return (
     <section id="services" className="scroll-mt-20 border-t border-border py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -489,22 +460,14 @@ function Services() {
         </div>
 
         <div className="mt-12 text-center">
-          <a
-            href={waLink("Hi ZendraStack! I want to discuss one of your services.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-whatsapp/40 bg-whatsapp/10 px-6 py-3 text-sm font-semibold text-whatsapp transition-all hover:bg-whatsapp/20"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Need something custom? Ask us on WhatsApp
-          </a>
+          <Button variant="outline" onClick={() => onInquiry("consultation")} className="h-auto max-w-full whitespace-normal px-6 py-3">Discuss a Custom Project <ArrowRight /></Button>
         </div>
       </div>
     </section>
   );
 }
 
-function Portfolio() {
+function Portfolio({ onInquiry }: { onInquiry: OpenInquiry }) {
   const [category, setCategory] = useState("All");
 
   const filtered =
@@ -521,13 +484,13 @@ function Portfolio() {
           </h2>
           <p className="mt-4 text-muted-foreground">
             A selection of projects we've shipped — with the outcomes that mattered.
-            Want something similar? Message us on WhatsApp.
+            Have a similar idea? Let's discuss your project.
           </p>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
           {PORTFOLIO_CATEGORIES.map((cat) => (
-            <button
+            <Button
               key={cat}
               onClick={() => setCategory(cat)}
               className={`rounded-full border px-4 py-2 text-xs font-semibold transition-all sm:text-sm ${
@@ -537,7 +500,7 @@ function Portfolio() {
               }`}
             >
               {cat}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -585,17 +548,7 @@ function Portfolio() {
                 ))}
               </div>
 
-                <a
-                  href={waLink(
-                    `Hi ZendraStack! I saw the "${project.title}" case study in your portfolio and I'd like something similar for my business.`,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-whatsapp/40 bg-whatsapp/10 px-4 py-2.5 text-sm font-semibold text-whatsapp transition-all hover:bg-whatsapp hover:text-whatsapp-foreground"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  Inquire About This Project
-                </a>
+                <Button variant="outline" onClick={() => onInquiry("quote", project.title)} className="mt-6 h-auto w-full whitespace-normal py-3">Inquire About This Project <ArrowRight /></Button>
               </div>
             </article>
           ))}
@@ -620,7 +573,7 @@ function Process() {
             From idea to launch in <span className="text-gradient">4 steps</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            A simple, transparent process — it all starts with a WhatsApp message.
+            A simple, transparent process — it all starts with your idea.
           </p>
         </div>
 
@@ -648,7 +601,7 @@ function Process() {
   );
 }
 
-function WhyUs() {
+function WhyUs({ onInquiry }: { onInquiry: OpenInquiry }) {
   return (
     <section id="why-us" className="scroll-mt-20 border-t border-border py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -681,15 +634,7 @@ function WhyUs() {
               set up or a system built? Just send us a message — we'll take it from
               there.
             </p>
-            <a
-              href={waLink("Hi ZendraStack! I have a project idea — let's talk.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-primary/90"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Start a Conversation
-            </a>
+            <Button onClick={() => onInquiry("consultation")} className="mt-7 h-12 max-w-full whitespace-normal px-6">Start a Conversation <ArrowRight /></Button>
           </div>
         </div>
       </div>
@@ -697,41 +642,13 @@ function WhyUs() {
   );
 }
 
-function Contact() {
+function Contact({ onInquiry }: { onInquiry: OpenInquiry }) {
   return (
-    <section id="contact" className="scroll-mt-20 border-t border-border bg-card/40 py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="hero-glow relative overflow-hidden rounded-3xl border border-border bg-background p-8 text-center sm:p-14">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Let's build your next <span className="text-gradient">big thing</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Want a server, a system, a website or an AI agent? Contact us directly on
-            WhatsApp — we usually reply within minutes.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={waLink("Hi ZendraStack! I'd like to get started.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp px-8 py-4 text-sm font-semibold text-whatsapp-foreground shadow-xl shadow-whatsapp/30 transition-all hover:-translate-y-0.5 hover:bg-whatsapp/90 sm:w-auto"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Chat on WhatsApp
-            </a>
-            <a
-              href={`tel:+${WHATSAPP_NUMBER_INTL}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-card px-8 py-4 font-display text-sm font-semibold tracking-wide text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 sm:w-auto"
-            >
-              {WHATSAPP_NUMBER_DISPLAY}
-            </a>
-          </div>
-
-          <p className="mt-6 text-xs text-muted-foreground">
-            Available 24/7 · Free consultation · No obligation
-          </p>
-        </div>
+    <section id="contact" className="scroll-mt-20 border-t border-border bg-secondary/40 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold sm:text-4xl">Let's build your next <span className="text-gradient">big thing</span></h2>
+        <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">A website, a platform or your next AI-powered idea — let's turn it into something great.</p>
+        <Button onClick={() => onInquiry("consultation")} className="mt-8 h-12 w-full px-8 font-semibold sm:w-auto">Get Consultation <ArrowRight /></Button>
       </div>
     </section>
   );
@@ -739,87 +656,50 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          <div className="flex flex-col items-center gap-2 md:items-start">
-            <a href="#home" className="flex items-center gap-2">
-          <img
-            src={logoBlack.url}
-            alt="ZendraStack Technologies"
-            className="h-10 w-auto dark:hidden"
-          />
-          <img
-            src={logoWhite.url}
-            alt="ZendraStack Technologies"
-            className="hidden h-10 w-auto dark:block"
-          />
+    <footer className="border-t border-border bg-card">
+      <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1.3fr] lg:gap-16">
+          <div className="min-w-0 sm:col-span-2 lg:col-span-1">
+            <a href="#home" className="inline-flex max-w-full" aria-label="ZendraStack home">
+              <img src={logoBlack.url} alt="ZendraStack Technologies" className="h-10 w-auto max-w-full object-contain dark:hidden" />
+              <img src={logoWhite.url} alt="ZendraStack Technologies" className="hidden h-10 w-auto max-w-full object-contain dark:block" />
             </a>
-            <p className="text-sm text-muted-foreground">
-              Websites · E-commerce · AI · SaaS · ERP · CRM · Chatbots
-            </p>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">Thoughtful websites, powerful software and intelligent automation. Built around your business.</p>
           </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav aria-label="Footer navigation" className="min-w-0">
+            <h3 className="text-sm font-semibold">Explore</h3>
+            <div className="mt-5 grid gap-3">{NAV_LINKS.map((link) => <a key={link.href} href={link.href} className="w-fit text-sm text-muted-foreground transition-colors hover:text-primary">{link.label}</a>)}</div>
+          </nav>
+          <div className="min-w-0">
+            <h3 className="text-sm font-semibold">What we build</h3>
+            <div className="mt-5 grid gap-3">{["Websites & E-commerce", "AI & Learning Platforms", "SaaS, ERP & CRM", "Chatbots & AI Agents"].map((label) => <a key={label} href="#services" className="w-fit text-sm text-muted-foreground transition-colors hover:text-primary">{label}</a>)}</div>
           </div>
-
-          <a
-            href={waLink("Hi ZendraStack!")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-whatsapp transition-colors hover:text-whatsapp/80"
-          >
-            <MessageCircle className="h-4 w-4" />
-            {WHATSAPP_NUMBER_DISPLAY}
-          </a>
         </div>
-
-        <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} ZendraStack. All rights reserved.
+        <div className="mt-12 grid gap-4 border-t border-border py-6 text-xs text-muted-foreground sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+          <p>© {new Date().getFullYear()} ZendraStack. All rights reserved.</p>
+          <a href="#home" className="inline-flex w-fit items-center gap-2 hover:text-primary">Back to top <ArrowRight className="h-3.5 w-3.5 -rotate-90" /></a>
         </div>
       </div>
     </footer>
   );
 }
 
-function FloatingWhatsApp() {
-  return (
-    <a
-      href={waLink("Hi ZendraStack! I have a question.")}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with ZendraStack on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-2xl shadow-whatsapp/40 transition-transform hover:scale-110"
-    >
-      <MessageCircle className="h-7 w-7" />
-      <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-whatsapp/30" />
-    </a>
-  );
-}
-
 function Index() {
+  const [inquiry, setInquiry] = useState<Inquiry | null>(null);
+  const onInquiry: OpenInquiry = (source, project) => setInquiry({ source, project });
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main>
-        <Hero />
-        <Services />
-        <Portfolio />
+        <Hero onInquiry={onInquiry} />
+        <Services onInquiry={onInquiry} />
+        <Portfolio onInquiry={onInquiry} />
         <Process />
-        <WhyUs />
-        <Contact />
+        <WhyUs onInquiry={onInquiry} />
+        <Contact onInquiry={onInquiry} />
       </main>
       <Footer />
-      <FloatingWhatsApp />
+      <ConsultationForm key={inquiry ? `${inquiry.source}-${inquiry.project ?? ""}` : "closed"} inquiry={inquiry} onClose={() => setInquiry(null)} services={SERVICES.map((service) => service.title)} />
     </div>
   );
 }
