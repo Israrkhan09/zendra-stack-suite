@@ -686,7 +686,7 @@ function Footer() {
 
 function Index() {
   const [inquiry, setInquiry] = useState<Inquiry | null>(null);
-  const onInquiry: OpenInquiry = (source, project) => setInquiry({ source, project });
+  const onInquiry: OpenInquiry = (source, project) => setInquiry({ source, project: project ?? "" });
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
