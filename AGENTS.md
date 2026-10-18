@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Theme architecture: semantic colors are light-first in `:root`, with the original dark palette under `.dark`; this preserves every component's existing color-role classes while enabling one global toggle.
+- Quote and consultation actions share one controlled right-side Sheet and client/server Zod schema; submissions use a dedicated server function and service-only storage to keep visitor details private.
